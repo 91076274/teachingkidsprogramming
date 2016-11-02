@@ -59,11 +59,11 @@ public class ChooseYourOwnAdventure
         "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water.");
     String soup = MessageBox
         .askForTextInput("As the man starts to prepare you as soup, do you...'Scream' or 'Faint'?");
-    if (soup == "faint")
+    if ("faint".equalsIgnoreCase(soup))
     {
       MessageBox.showMessage("You made a delicious soup! Yum! The end.");
     }
-    else if (soup == "scream")
+    else if ("scream".equalsIgnoreCase(soup))
     {
       startStory();
     }
