@@ -84,28 +84,58 @@ public class ChooseYourOwnAdventure_01
     String food = MessageBox.askForTextInput("Do you want to offer it 'food' or be 'eaten'");
     if ("food".equalsIgnoreCase(food))
     {
-      MessageBox
-          .showMessage("The Phionex accepts your offering and asks if you would like to join it in its kingdom.");
-      String kingdom = MessageBox.askForTextInput("Do say 'yes' or 'HECK YES'?");
-      if ("yes".equalsIgnoreCase(kingdom))
-      {
-        MessageBox.showMessage(
-            "The phionex thinks you are a bit unenthusistic but takes you with him anyways. You go through the portal (your TV)and happily live out your days with your new Phionex friend.");
-      }
-      if ("HECK YES".equalsIgnoreCase(kingdom))
-      {
-        MessageBox.showMessage(
-            "The Phionex loves your response! He takes you through the portal and you live happily with your new friend.");
-      }
+      giveFood();
     }
     else if ("eaten".equalsIgnoreCase(food))
     {
-      MessageBox
-          .showMessage("Awesome dude!  You live out the rest of your life fighting crimes and eating pizza!");
+      String look = MessageBox
+          .askForTextInput("The phionex stares at you, with its beady eyes. 'cower' or have a 'staring' contest.");
+      if ("cower".equalsIgnoreCase(look))
+      {
+        MessageBox
+            .showMessage("The Phionex declares you unworthy, as you have not shown any bravery. It eats you.");
+        endStory();
+      }
+      else if ("staring".equalsIgnoreCase(look))
+      {
+        String brave = MessageBox.askForTextInput(
+            "The Phionex wins the staring contest. It deems you brave enough to join it in its kingdom. Do you say 'yes'or 'no'?");
+        if ("yes".equalsIgnoreCase(brave))
+        {
+          MessageBox.showMessage(
+              "The Phionex loves your response! He takes you through the portal and you live happily with your new friend.");
+          endStory();
+        }
+        else if ("no".equalsIgnoreCase(brave))
+        {
+          MessageBox.showMessage("The Phionex dislkes your response, and cannot let you live. He eats you");
+          endStory();
+        }
+        else
+        {
+          error();
+        }
+      }
     }
     else
     {
-      endStory();
+      error();
+    }
+  }
+  private static void giveFood()
+  {
+    MessageBox
+        .showMessage("The Phionex accepts your offering and asks if you would like to join it in its kingdom.");
+    String kingdom = MessageBox.askForTextInput("Do say 'yes' or 'HECK YES'?");
+    if ("yes".equalsIgnoreCase(kingdom))
+    {
+      MessageBox.showMessage(
+          "The phionex thinks you are a bit unenthusistic but takes you with him anyways. You go through the portal (your TV)and happily live out your days with your new Phionex friend.");
+    }
+    if ("HECK YES".equalsIgnoreCase(kingdom))
+    {
+      MessageBox.showMessage(
+          "The Phionex loves your response! He takes you through the portal and you live happily with your new friend.");
     }
   }
   private static void runAway()
