@@ -52,26 +52,29 @@ public class ChooseYourOwnAdventure_01
     }
     else if ("pour".equalsIgnoreCase(phionex))
     {
-      pourIntoBackyard();
+      pourOnPhionex();
     }
     else
     {
       error();
     }
   }
-  private static void pourIntoBackyard()
+  private static void pourOnPhionex()
   {
-    MessageBox.showMessage(
-        "As you walk into the backyard a net scoops you up and a giant takes you to a boiling pot of water.");
-    String soup = MessageBox
-        .askForTextInput("As the man starts to prepare you as soup, do you...'Scream' or 'Faint'?");
-    if ("faint".equalsIgnoreCase(soup))
+    MessageBox.showMessage("The Phionex lets out a terrifying screech, it falls to the ground.");
+    String screech = MessageBox.askForTextInput("Do you 'apologize' or 'laugh'?");
+    if ("apologize".equalsIgnoreCase(screech))
     {
-      MessageBox.showMessage("You made a delicious soup! Yum! The end.");
+      MessageBox.showMessage(
+          "You nurse the Phionex back to health, as you had acted upon fear, and not wanted to harm the magestic creature.");
+      MessageBox.showMessage(
+          "The Phionex accepts your appology, but one day he dispears without a trace. Your life continues as if nothing had happened.");
+      endStory();
     }
-    else if ("scream".equalsIgnoreCase(soup))
+    else if ("laugh".equalsIgnoreCase(screech))
     {
-      startStory();
+      MessageBox.showMessage(
+          "The Phionex glares at you with such hate. He shows his true power and burns you to a crisp.");
     }
     else
     {
@@ -88,38 +91,41 @@ public class ChooseYourOwnAdventure_01
     }
     else if ("eaten".equalsIgnoreCase(food))
     {
-      String look = MessageBox
-          .askForTextInput("The phionex stares at you, with its beady eyes. 'cower' or have a 'staring' contest.");
-      if ("cower".equalsIgnoreCase(look))
-      {
-        MessageBox
-            .showMessage("The Phionex declares you unworthy, as you have not shown any bravery. It eats you.");
-        endStory();
-      }
-      else if ("staring".equalsIgnoreCase(look))
-      {
-        String brave = MessageBox.askForTextInput(
-            "The Phionex wins the staring contest. It deems you brave enough to join it in its kingdom. Do you say 'yes'or 'no'?");
-        if ("yes".equalsIgnoreCase(brave))
-        {
-          MessageBox.showMessage(
-              "The Phionex loves your response! He takes you through the portal and you live happily with your new friend.");
-          endStory();
-        }
-        else if ("no".equalsIgnoreCase(brave))
-        {
-          MessageBox.showMessage("The Phionex dislkes your response, and cannot let you live. He eats you");
-          endStory();
-        }
-        else
-        {
-          error();
-        }
-      }
+      eaten();
     }
     else
     {
       error();
+    }
+  }
+  private static void eaten()
+  {
+    String look = MessageBox
+        .askForTextInput("The phionex stares at you, with its beady eyes. 'cower' or have a 'staring' contest.");
+    if ("cower".equalsIgnoreCase(look))
+    {
+      MessageBox.showMessage("The Phionex declares you unworthy, as you have not shown any bravery. It eats you.");
+      endStory();
+    }
+    else if ("staring".equalsIgnoreCase(look))
+    {
+      String brave = MessageBox.askForTextInput(
+          "The Phionex wins the staring contest. It deems you brave enough to join it in its kingdom. Do you say 'yes'or 'no'?");
+      if ("yes".equalsIgnoreCase(brave))
+      {
+        MessageBox.showMessage(
+            "The Phionex loves your response! He takes you through the portal and you live happily with your new friend.");
+        endStory();
+      }
+      else if ("no".equalsIgnoreCase(brave))
+      {
+        MessageBox.showMessage("The Phionex dislkes your response, and cannot let you live. He eats you");
+        endStory();
+      }
+      else
+      {
+        error();
+      }
     }
   }
   private static void giveFood()

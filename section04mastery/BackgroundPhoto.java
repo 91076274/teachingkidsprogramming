@@ -8,6 +8,8 @@ public class BackgroundPhoto
   public static void main(String[] args)
   {
     //  Set the current picture to this url "http://img2.timeinc.net/ew/dynamic/imgs/101110/sonny-cher_240.jpg" --#1.0
+    String picture = "http://img2.timeinc.net/ew/dynamic/imgs/101110/sonny-cher_240.jpg";
+    Tortoise.getBackgroundWindow().setBackgroundImage(picture);
     //  Set the background image to the current picture--#1.1
     Tortoise.show();
     Tortoise.setSpeed(10);
