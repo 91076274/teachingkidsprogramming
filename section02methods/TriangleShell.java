@@ -11,10 +11,10 @@ public class TriangleShell
   {
     Tortoise.show();
     Tortoise.setSpeed(10);
-    for (int i = 0; i < 60; i++)
+    for (int i = 0; i < 600; i++)
     {
       Tortoise.setPenColor(PenColors.getRandomColor());
-      length = length + 4;
+      length = length + 1;
       drawTriangle();
       Tortoise.turn(360 / 60);
     }
